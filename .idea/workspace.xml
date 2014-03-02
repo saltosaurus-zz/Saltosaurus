@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c649a849-29f5-4a7f-a874-f6bc44023f92" name="Default" comment="Modifying database to use local sqlite for dev/test&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/comment.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/comment_test.rb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/integration/home_test.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/story.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/models/story_test.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__Saltosaurus.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__Saltosaurus.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__Saltosaurus.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__Saltosaurus.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Saltosaurus.iml" afterPath="$PROJECT_DIR$/.idea/Saltosaurus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Saltosaurus.iws" />
@@ -600,7 +588,11 @@
       <created>1393744259365</created>
       <updated>1393744259365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adding Story and Comments scaffolds">
+      <created>1393744344567</created>
+      <updated>1393744344567</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -644,7 +636,8 @@
     <MESSAGE value="Modifying database to use local sqlite for dev/test&#10;" />
     <MESSAGE value="Updating gemfile to include new test-based and code coverage gems" />
     <MESSAGE value="Adding dev/test databases to ignore list&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding dev/test databases to ignore list&#10;" />
+    <MESSAGE value="Adding Story and Comments scaffolds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Story and Comments scaffolds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
