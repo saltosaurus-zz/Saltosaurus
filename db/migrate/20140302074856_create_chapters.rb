@@ -1,9 +1,11 @@
 class CreateChapters < ActiveRecord::Migration
   def change
     create_table :chapters do |t|
+      t.belongs_to :novel
       t.integer :number
-      t.string :name
+      t.string :title
       t.text :contents
+      t.datetime :published_on
 
       t.timestamps
     end
