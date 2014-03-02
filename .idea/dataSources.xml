@@ -10,9 +10,8 @@
     </data-source>
     <data-source source="LOCAL" name="Rails Saltosaurus: test" uuid="44e4ad70-efc3-4d67-bc07-d44c96cf4c26">
       <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/Saltosaurus_test</jdbc-url>
-      <user-name>root</user-name>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Saltosaurus_test</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Saltosaurus: production" uuid="331b4cdd-2fd1-47ad-8052-e36724178653">
