@@ -19,3 +19,6 @@
 
 # Ignore code coverage output files
 /coverage/*
+
+# Ignore RubyMine config files
+/.idea/*
