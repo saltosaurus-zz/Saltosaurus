@@ -1,0 +1,25 @@
+<h1>Listing short_stories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @short_stories.each do |short_story| %>
+      <tr>
+        <td><%= link_to 'Show', short_story %></td>
+        <td><%= link_to 'Edit', edit_short_story_path(short_story) %></td>
+        <td><%= link_to 'Destroy', short_story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Short story', new_short_story_path %>
