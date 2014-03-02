@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 # Enable code coverage tools in RubyMine
 gem 'simplecov'
 
+# Ensure interal name collisions are handled
+gem 'safe_attributes'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
