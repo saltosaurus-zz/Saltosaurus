@@ -1,4 +1,6 @@
 Saltosaurus::Application.routes.draw do
+  resources :chapters
+
   resources :updates
 
   resources :comments

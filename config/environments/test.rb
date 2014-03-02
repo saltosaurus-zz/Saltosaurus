@@ -33,4 +33,7 @@ Saltosaurus::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  #Skipping validation of my locale
+  I18n.enforce_available_locales = false
 end
