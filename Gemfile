@@ -45,6 +45,10 @@ group :test do
   gem 'sqlite3'
 end
 
+group :development, :test do
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
