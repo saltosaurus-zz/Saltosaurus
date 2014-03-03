@@ -3,5 +3,5 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :story
   validates_presence_of :author
-  validates_presence_of :contents
+  validates_presence_of :content
 end
