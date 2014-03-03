@@ -1,8 +1,3 @@
 class ShortStory < Story
-  validates_presence_of :story
-  validates_presence_of :published_on
-
-  attr_accessor :story
-  attr_reader :published_on
-
+  validates :content, :presence => true
 end

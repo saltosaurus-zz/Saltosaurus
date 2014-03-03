@@ -1,7 +1,7 @@
 class Story < ActiveRecord::Base
   has_many :comments
 
-  validates_presence_of :author
-  validates_presence_of :title
-
+  validates :author, :presence => true
+  validates :title, :presence => true
+  validates :published_on, :presence => true
 end

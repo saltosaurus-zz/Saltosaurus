@@ -1,7 +1,7 @@
 class Update < ActiveRecord::Base
-  validates_presence_of :author
-  validates_presence_of :content
-  validates_presence_of :title
-  validates_presence_of :published_on
+  validates :author, :presence => true
+  validates :content, :presence => true
+  validates :title, :presence => true
+  validates :published_on, :presence => true
 
 end
