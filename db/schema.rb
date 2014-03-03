@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302213523) do
+ActiveRecord::Schema.define(version: 20140302074856) do
 
   create_table "chapters", force: true do |t|
     t.integer  "novel_id"
     t.integer  "number"
     t.string   "title"
-    t.text     "contents"
+    t.text     "content"
     t.datetime "published_on"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,30 +31,17 @@ ActiveRecord::Schema.define(version: 20140302213523) do
     t.datetime "updated_at"
   end
 
-  create_table "novels", force: true do |t|
-    t.datetime "begun_on"
-    t.datetime "completed_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "short_stories", force: true do |t|
-    t.text     "contents"
-    t.datetime "published_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "stories", force: true do |t|
     t.string   "title"
     t.string   "author"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "published_on"
+    t.datetime "begun_on"
+    t.text     "content"
   end
 
   create_table "updates", force: true do |t|
     t.string   "author"
-    t.text     "contents"
+    t.text     "content"
     t.string   "title"
     t.datetime "published_on"
     t.datetime "created_at"
