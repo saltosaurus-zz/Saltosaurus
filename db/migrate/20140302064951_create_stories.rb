@@ -11,6 +11,13 @@ class CreateStories < ActiveRecord::Migration
 
       # Used in Short Stories
       t.text :content
+
+      # Used in Chapters
+      t.belongs_to :novel
+      t.integer :number
+      t.text :content
+
+      t.string :type
     end
   end
 end

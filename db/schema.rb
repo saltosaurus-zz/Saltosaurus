@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302074856) do
-
-  create_table "chapters", force: true do |t|
-    t.integer  "novel_id"
-    t.integer  "number"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "published_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140302071444) do
 
   create_table "comments", force: true do |t|
     t.integer  "story_id"
@@ -37,6 +27,9 @@ ActiveRecord::Schema.define(version: 20140302074856) do
     t.datetime "published_on"
     t.datetime "begun_on"
     t.text     "content"
+    t.integer  "novel_id"
+    t.integer  "number"
+    t.string   "type"
   end
 
   create_table "updates", force: true do |t|

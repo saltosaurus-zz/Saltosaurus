@@ -1,6 +1,6 @@
-class Chapter < ActiveRecord::Base
+class Chapter < Story
   validates :novel_id, :presence => true
-  validates :title, :number, :presence => true, :uniqueness => {:scope => :novel_id}
+  validates :number, :presence => true
+  validates :title, :number, :uniqueness => {:scope => :novel_id}
   validates :content, :presence => true
-  validates :published_on, :presence => true
 end
