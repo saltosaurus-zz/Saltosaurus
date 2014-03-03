@@ -1,4 +1,4 @@
-class ShortStory < ActiveRecord::Base
+class ShortStory < Story
   validates_presence_of :story
   validates_presence_of :published_on
 
