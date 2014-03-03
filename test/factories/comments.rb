@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comment do
-    sequence(:author) { |i| "Andrew#{i}" }
-    content 'My back itches'
+    author 'Andrew'
+    sequence(:content) { |c| 'My back itches #{c}' }
     association :story
   end
 end
