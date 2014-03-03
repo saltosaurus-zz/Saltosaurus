@@ -4,7 +4,7 @@ class CreateChapters < ActiveRecord::Migration
       t.belongs_to :novel
       t.integer :number
       t.string :title
-      t.text :contents
+      t.text :content
       t.datetime :published_on
 
       t.timestamps
