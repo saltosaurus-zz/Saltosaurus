@@ -1,25 +1,25 @@
 require 'test_helper'
 
-class CommentTest < ActiveSupport::TestCase
+class CommentTest < MiniTest::Unit::TestCase
 
-  test 'valid with story, author and contents' do
+  def test_valid_with_story_author_and_contents
     comment = build(:comment)
     assert comment.valid?, 'Comment has author, content and story but is invalid'
   end
 
-  test 'invalid without story' do
-    comment = build(:comment, story: nil)
-    assert !comment.valid?, 'Story is missing author but is still valid'
+  def test_invalid_without_commentable_object_association
+    comment = build(:comment, commentable: nil)
+    assert !comment.valid?, 'Comment is missing commentable object association but is still valid'
   end
 
-  test 'invalid without author' do
+  def test_invalid_without_author
     comment = build(:comment, author: nil)
-    assert !comment.valid?, 'Story is missing content but is still valid'
+    assert !comment.valid?, 'Comment is missing author but is still valid'
   end
 
-  test 'invalid without content' do
+  def test_invalid_without_content
     comment = build(:comment, content: nil)
-    assert !comment.valid?, 'Story is missing story but is still valid'
+    assert !comment.valid?, 'Comment is missing content but is still valid'
   end
 
 end

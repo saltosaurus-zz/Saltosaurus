@@ -43,6 +43,8 @@ group :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'sqlite3'
+  gem 'minitest'
+  gem 'minitest-reporters'
 end
 
 group :development, :test do

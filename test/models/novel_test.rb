@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class NovelTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class NovelTest < MiniTest::Unit::TestCase
+
+
+
 end

@@ -1,41 +1,51 @@
 require 'test_helper'
 
-class StoryTest < ActiveSupport::TestCase
+class StoryTest < MiniTest::Unit::TestCase
 
-  test 'valid with name and author' do
+  def test_valid_with_required_fields
     story = build(:story)
     assert story.valid?, 'Story has title and author but is invalid'
   end
 
-  test 'invalid without name' do
+  def test_invalid_without_title
     story = build(:story, title: nil)
     assert !story.valid?, 'Story is missing title but is still valid'
   end
 
-  test 'invalid without author' do
+  def test_without_author
     story = build(:story, author: nil)
     assert !story.valid?, 'Story is missing author but is still valid'
   end
 
-  test 'story is created with zero comments' do
+  def test_invalid_without_content
+    short_story = build(:short_story, content: nil)
+    assert !short_story.valid?, 'ShortStory is missing content but is still valid'
+  end
+
+  def test_invalid_without_published_on_date
+    short_story = build(:short_story, published_on: nil)
+    assert !short_story.valid?, 'ShortStory is missing published_on date but is still valid'
+  end
+
+  def test_story_is_created_with_zero_comments
     story = create(:story)
     assert story.comments.size == 0
   end
 
-  test 'story is valid with zero comments' do
+  def test_story_is_valid_with_zero_comments
     story = create(:story)
     assert story.valid?
   end
 
-  test 'story is valid with comments' do
+  def test_story_is_valid_with_comments
     story = create(:story)
-    10.times {create(:comment, story: story)}
+    create(:comment, commentable: story)
     assert story.valid?
   end
 
-  test 'new comments can be attached to an existing story' do
+  def test_new_comments_can_be_attached_to_existing_story
     story = create(:story)
-    10.times {create(:comment, story: story)}
+    10.times {create(:comment, commentable: story)}
     assert story.comments.size == 10
   end
 

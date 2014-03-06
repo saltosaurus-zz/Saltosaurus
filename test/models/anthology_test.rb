@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AnthologyTest < ActiveSupport::TestCase
+class AnthologyTest < MiniTest::Unit::TestCase
   # test "the truth" do
   #   assert true
   # end

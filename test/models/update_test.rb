@@ -1,28 +1,28 @@
 require 'test_helper'
 
-class UpdateTest < ActiveSupport::TestCase
+class UpdateTest < MiniTest::Unit::TestCase
 
-  test 'valid with author, content, title and published_on date' do
+  def test_valid_with_required_fields
     update = build(:update)
     assert update.valid?, 'Update has author, content, title and published_on date but is invalid'
   end
 
-  test 'invalid without author' do
+  def test_invalid_without_author
     update = build(:update, author: nil)
     assert !update.valid?, 'Update is missing author but is still valid'
   end
 
-  test 'invalid without content' do
+  def test_invalid_without_content
     update = build(:update, content: nil)
     assert !update.valid?, 'Update is missing content but is still valid'
   end
 
-  test 'invalid without title' do
+  def test_invalid_without_title
     update = build(:update, title: nil)
     assert !update.valid?, 'Update is missing title but is still valid'
   end
 
-  test 'invalid without published_on date' do
+  def test_invalid_without_published_on_date
     update = build(:update, published_on: nil)
     assert !update.valid?, 'Update is missing published_on date but is still valid'
   end
