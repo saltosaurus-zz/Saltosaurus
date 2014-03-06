@@ -1,6 +1,6 @@
 class Chapter < Story
-  validates :novel_id, :presence => true
-  validates :number, :presence => true
-  validates :title, :number, :uniqueness => {:scope => :novel_id}
-  validates :content, :presence => true
+  belongs_to :novel, foreign_key: :collection_id
+  validates :novel, presence: true
+  validates :number, presence: true, uniqueness: { scope: :collection_id, message: 'already exists within this Novel.' }
+  validates :title, uniqueness: { scope: :collection_id, message: 'already exists within this Novel.' }
 end

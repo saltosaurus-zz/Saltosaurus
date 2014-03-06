@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302071444) do
+ActiveRecord::Schema.define(version: 20140306024522) do
+
+  create_table "collections", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.datetime "begun_on"
+    t.datetime "completed_on"
+  end
 
   create_table "comments", force: true do |t|
-    t.integer  "story_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.string   "content"
     t.string   "author"
     t.datetime "created_at"
@@ -24,10 +32,9 @@ ActiveRecord::Schema.define(version: 20140302071444) do
   create_table "stories", force: true do |t|
     t.string   "title"
     t.string   "author"
-    t.datetime "published_on"
-    t.datetime "begun_on"
     t.text     "content"
-    t.integer  "novel_id"
+    t.datetime "published_on"
+    t.integer  "collection_id"
     t.integer  "number"
     t.string   "type"
   end
