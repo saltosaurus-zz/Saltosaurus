@@ -1,0 +1,2 @@
+class Anthology < Collection
+end

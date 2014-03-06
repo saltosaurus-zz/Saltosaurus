@@ -1,4 +1,6 @@
 Saltosaurus::Application.routes.draw do
+  resources :collections
+
   resources :novels
 
   resources :short_stories
