@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306024522) do
+ActiveRecord::Schema.define(version: 20140307022242) do
+
+  create_table "appearances", force: true do |t|
+    t.integer "collection_id"
+    t.integer "story_id"
+  end
 
   create_table "collections", force: true do |t|
     t.string   "title"
@@ -46,6 +51,10 @@ ActiveRecord::Schema.define(version: 20140306024522) do
     t.datetime "published_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "name"
   end
 
 end
