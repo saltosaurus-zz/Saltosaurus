@@ -1,3 +1,3 @@
 class Anthology < Collection
-  has_many :short_stories
+  has_and_belongs_to_many :short_stories, foreign_key: :collection_id
 end
