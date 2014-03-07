@@ -22,4 +22,10 @@ class CommentTest < MiniTest::Unit::TestCase
     assert !comment.valid?, 'Comment is missing content but is still valid'
   end
 
+  def test_new_comments_can_be_attached_to_existing_story
+    story = create(:story)
+    10.times {create(:comment, commentable: story)}
+    assert story.comments.size == 10
+  end
+
 end

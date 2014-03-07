@@ -27,9 +27,6 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Enable code coverage tools in RubyMine
-gem 'simplecov'
-
 # Ensure interal name collisions are handled
 gem 'safe_attributes'
 
@@ -43,6 +40,7 @@ group :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'sqlite3'
+  gem 'simplecov'
   gem 'minitest'
   gem 'minitest-reporters'
 end

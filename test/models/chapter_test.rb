@@ -61,7 +61,7 @@ class ChapterTest < MiniTest::Unit::TestCase
   def test_Chapter_can_be_added_to_a_Novel
     novel = create(:novel)
     chapter = create(:chapter, novel: novel)
-    assert novel.chapters
+    assert novel.chapters.count == 1
   end
 
 end
