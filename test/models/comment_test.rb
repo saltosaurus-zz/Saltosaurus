@@ -7,7 +7,7 @@ class CommentTest < MiniTest::Unit::TestCase
     assert comment.valid?, 'Comment has author, content and story but is invalid'
   end
 
-  def test_invalid_without_commentable_object_association
+  def test_invalid_without_commentable_object
     comment = build(:comment, commentable: nil)
     assert !comment.valid?, 'Comment is missing commentable object association but is still valid'
   end
@@ -22,10 +22,16 @@ class CommentTest < MiniTest::Unit::TestCase
     assert !comment.valid?, 'Comment is missing content but is still valid'
   end
 
-  def test_new_comments_can_be_attached_to_existing_story
-    story = create(:story)
-    10.times {create(:comment, commentable: story)}
-    assert story.comments.size == 10
+  def test_comments_are_unique_on_commentable_item
+    comment = create(:comment, content: 'Fish')
+    comment2 = build(:comment, content: 'Fish', commentable: comment.commentable)
+    assert comment2.invalid?, 'Comments are not unique amongst commentable items'
+  end
+
+  def test_comments_are_not_unique_on_different_items
+    comment = create(:comment, content: 'Fish')
+    comment2 = build(:comment, content: 'Fish')
+    assert comment2.valid?, 'Comments are unique amongst all items'
   end
 
 end

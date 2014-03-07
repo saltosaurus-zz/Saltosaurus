@@ -29,18 +29,35 @@ class StoryTest < MiniTest::Unit::TestCase
 
   def test_story_is_created_with_zero_comments
     story = create(:story)
-    assert story.comments.size == 0
+    assert story.comments.size == 0, 'Story was created with a nonzero number of comments'
   end
 
   def test_story_is_valid_with_zero_comments
     story = create(:story)
-    assert story.valid?
+    assert story.valid?, 'Story is invalid without comments'
   end
 
   def test_story_is_valid_with_comments
     story = create(:story)
     create(:comment, commentable: story)
-    assert story.valid?
+    assert story.valid?, 'Story is invalid with comments'
+  end
+
+  def test_story_is_created_with_an_author
+    story = create(:story)
+    assert story.author, 'Story was not created with an author'
+  end
+
+  def test_author_can_be_added_to_story
+    author = create(:user, name: 'Salty')
+    story = create(:story, author: author)
+    assert story.author.name == 'Salty', 'Author was not successfully added to story'
+  end
+
+  def test_comments_can_be_attached_to_existing_story
+    story = create(:story)
+    10.times {create(:comment, commentable: story)}
+    assert story.comments.size == 10, 'Comments cannot be attached to existing story'
   end
 
 end

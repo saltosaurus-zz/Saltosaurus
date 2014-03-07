@@ -41,7 +41,6 @@ group :test do
   gem 'capybara'
   gem 'sqlite3'
   gem 'simplecov'
-  gem 'minitest'
   gem 'minitest-reporters'
 end
 

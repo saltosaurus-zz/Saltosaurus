@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :short_story do
-    author 'Brian'
+    association :author, factory: :user
     sequence(:title) { |n| "Thinking for Dummies #{n}" }
     published_on Time.now
     content 'Insert content here...'

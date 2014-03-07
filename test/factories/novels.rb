@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :novel do
-    author 'Brian'
+    association :author, factory: :user
     title 'Thinking for Dummies'
     begun_on Time.now
 

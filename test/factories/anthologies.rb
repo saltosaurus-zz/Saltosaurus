@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :anthology do
+    title 'Stories by Bill'
+    association :author, factory: :user
+    begun_on Time.now
   end
 end

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :collection do
     title 'Book of Stories'
-    author 'Brian'
+    association :author, factory: :user
     begun_on Time.now
   end
 end

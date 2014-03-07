@@ -27,4 +27,15 @@ class UpdateTest < MiniTest::Unit::TestCase
     assert !update.valid?, 'Update is missing published_on date but is still valid'
   end
 
+  def test_update_is_created_with_an_author
+    update = create(:update)
+    assert update.author, 'Update was not created with an author'
+  end
+
+  def test_author_can_be_added_to_update
+    author = create(:user, name: 'Salty')
+    update = create(:update, author: author)
+    assert update.author.name == 'Salty', 'Author was not successfully added to Update'
+  end
+
 end

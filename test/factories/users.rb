@@ -1,7 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :user do
-    name "MyString"
+    name 'Brian'
+    sequence(:username) { |n| "Saltosaurus#{n}" }
+    encrypted_password 'catsasdf'
   end
 end

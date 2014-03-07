@@ -3,7 +3,7 @@ class CreateStories < ActiveRecord::Migration
     create_table :stories do |t|
       # Used in all stories
       t.string :title
-      t.string :author
+      t.belongs_to :user
       t.text :content
       t.datetime :published_on
       t.belongs_to :collection

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140307022242) do
 
   create_table "collections", force: true do |t|
     t.string   "title"
-    t.string   "author"
+    t.integer  "user_id"
     t.datetime "begun_on"
     t.datetime "completed_on"
   end
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140307022242) do
 
   create_table "stories", force: true do |t|
     t.string   "title"
-    t.string   "author"
+    t.integer  "user_id"
     t.text     "content"
     t.datetime "published_on"
     t.integer  "collection_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140307022242) do
   end
 
   create_table "updates", force: true do |t|
-    t.string   "author"
+    t.integer  "user_id"
     t.text     "content"
     t.string   "title"
     t.datetime "published_on"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20140307022242) do
 
   create_table "users", force: true do |t|
     t.string "name"
+    t.string "username"
+    t.string "encrypted_password"
   end
 
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :update do
-    author 'Brian'
+    association :author, factory: :user
     content 'My back itches'
     title 'My life'
     published_on Time.now
