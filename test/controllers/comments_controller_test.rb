@@ -1,45 +1,46 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
-  setup do
-    @comment = comments(:one)
+  def setup
+    @comment = create(:comment)
   end
 
-  test "should get index" do
+  def test_should_get_index
     get :index
     assert_response :success
     assert_not_nil assigns(:comments)
   end
 
-  test "should get new" do
+  def test_should_get_new
     get :new
     assert_response :success
   end
 
-  test "should create comment" do
+  def test_should_create_comment
     assert_difference('Comment.count') do
-      post :create, comment: { author: @comment.author, contents: @comment.contents }
+      comment = build(:comment)
+      post :create, comment: { author: comment.author, content: comment.content,  commentable_id: @comment.commentable.id, commentable_type: @comment.commentable.class.name}
     end
 
     assert_redirected_to comment_path(assigns(:comment))
   end
 
-  test "should show comment" do
+  def test_should_show_comment
     get :show, id: @comment
     assert_response :success
   end
 
-  test "should get edit" do
+  def test_should_get_edit
     get :edit, id: @comment
     assert_response :success
   end
 
-  test "should update comment" do
-    patch :update, id: @comment, comment: { author: @comment.author, contents: @comment.contents }
+  def test_should_update_comment
+    patch :update, id: @comment, comment: { author: @comment.author, content: @comment.content,  commentable_id: @comment.commentable.id, commentable_type: @comment.commentable.class.name }
     assert_redirected_to comment_path(assigns(:comment))
   end
 
-  test "should destroy comment" do
+  def test_should_destroy_comment
     assert_difference('Comment.count', -1) do
       delete :destroy, id: @comment
     end

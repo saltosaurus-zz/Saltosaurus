@@ -1,5 +1,6 @@
 class UpdatesController < ApplicationController
   before_action :set_update, only: [:show, :edit, :update, :destroy]
+  before_action :set_author, only: [:create, :update]
 
   # GET /updates
   # GET /updates.json
@@ -24,7 +25,7 @@ class UpdatesController < ApplicationController
   # POST /updates
   # POST /updates.json
   def create
-    @update = Update.new(update_params)
+    @update = Update.new(@params)
 
     respond_to do |format|
       if @update.save
@@ -41,7 +42,7 @@ class UpdatesController < ApplicationController
   # PATCH/PUT /updates/1.json
   def update
     respond_to do |format|
-      if @update.update(update_params)
+      if @update.update(@params)
         format.html { redirect_to @update, notice: 'Update was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,8 +68,14 @@ class UpdatesController < ApplicationController
       @update = Update.find(params[:id])
     end
 
+    # When author is passed as user_id, find user and replace in params hash
+    def set_author
+      user = User.find(update_params[:author])
+      @params = {author: user, title: update_params[:title], published_on: update_params[:published_on], content: update_params[:content]}
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def update_params
-      params.require(:update).permit(:author, :update, :name)
+      params.require(:update).permit(:author, :content, :title, :published_on)
     end
 end

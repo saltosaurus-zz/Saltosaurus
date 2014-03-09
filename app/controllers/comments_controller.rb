@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_commentable, only: [:create, :update]
 
   # GET /comments
   # GET /comments.json
@@ -24,7 +25,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(@params)
 
     respond_to do |format|
       if @comment.save
@@ -41,7 +42,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1.json
   def update
     respond_to do |format|
-      if @comment.update(comment_params)
+      if @comment.update(@params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,8 +68,15 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 
+    # When author is passed as user_id, find user and replace in params hash
+    def set_commentable
+      commentable_type = comment_params[:commentable_type]
+      commentable = commentable_type.constantize.find(comment_params[:commentable_id])
+      @params = {author: comment_params[:author], content: comment_params[:content], commentable: commentable}
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:contents, :author)
+      params.require(:comment).permit(:content, :author, :commentable_id, :commentable_type)
     end
 end

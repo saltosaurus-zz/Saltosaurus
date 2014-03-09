@@ -1,45 +1,45 @@
 require 'test_helper'
 
 class StoriesControllerTest < ActionController::TestCase
-  setup do
-    @story = stories(:one)
+  def setup
+    @story = create(:story)
   end
 
-  test "should get index" do
+  def test_should_get_index
     get :index
     assert_response :success
     assert_not_nil assigns(:stories)
   end
 
-  test "should get new" do
+  def test_should_get_new
     get :new
     assert_response :success
   end
 
-  test "should create story" do
+  def test_should_create_story
     assert_difference('Story.count') do
-      post :create, story: { author: @story.author, name: @story.name, story: @story.story }
+      post :create, story: { author: @story.author, title: @story.title, content: @story.content, published_on: @story.published_on }
     end
 
     assert_redirected_to story_path(assigns(:story))
   end
 
-  test "should show story" do
+  def test_should_show_story
     get :show, id: @story
     assert_response :success
   end
 
-  test "should get edit" do
+  def test_should_get_edit
     get :edit, id: @story
     assert_response :success
   end
 
-  test "should update story" do
-    patch :update, id: @story, story: { author: @story.author, name: @story.name, story: @story.story }
+  def test_should_update_story
+    patch :update, id: @story, story: { author: @story.author, title: @story.title, content: @story.content, published_on: @story.published_on }
     assert_redirected_to story_path(assigns(:story))
   end
 
-  test "should destroy story" do
+  def test_should_destroy_story
     assert_difference('Story.count', -1) do
       delete :destroy, id: @story
     end
