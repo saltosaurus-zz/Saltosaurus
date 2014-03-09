@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UpdatesControllerTest < ActionController::TestCase
   setup do
-    @update = updates(:one)
+    @update = create(:update)
   end
 
   test "should get index" do
@@ -18,7 +18,7 @@ class UpdatesControllerTest < ActionController::TestCase
 
   test "should create update" do
     assert_difference('Update.count') do
-      post :create, update: { author: @update.author, name: @update.name, update: @update.update }
+      post :create, update: { author: @update.author, title: @update.title, published_on: @update.published_on, content: @update.content }
     end
 
     assert_redirected_to update_path(assigns(:update))
@@ -35,7 +35,7 @@ class UpdatesControllerTest < ActionController::TestCase
   end
 
   test "should update update" do
-    patch :update, id: @update, update: { author: @update.author, name: @update.name, update: @update.update }
+    patch :update, id: @update, update: { author: @update.author, title: @update.title, published_on: @update.published_on, content: @update.content }
     assert_redirected_to update_path(assigns(:update))
   end
 

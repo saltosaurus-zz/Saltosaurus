@@ -38,10 +38,11 @@ end
 group :test do
   gem 'mocha'
   gem 'shoulda'
-  gem 'capybara'
+  gem 'minitest-rails-capybara'
   gem 'sqlite3'
   gem 'simplecov'
   gem 'minitest-reporters'
+  gem 'minitest-rails'
 end
 
 group :development, :test do

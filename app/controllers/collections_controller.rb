@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
+  before_action :set_author, only: [:create, :update]
 
   # GET /collections
   # GET /collections.json
@@ -24,8 +25,7 @@ class CollectionsController < ApplicationController
   # POST /collections
   # POST /collections.json
   def create
-    @collection = Collection.new(collection_params)
-
+    @collection = Collection.new(@params)
     respond_to do |format|
       if @collection.save
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
@@ -41,7 +41,7 @@ class CollectionsController < ApplicationController
   # PATCH/PUT /collections/1.json
   def update
     respond_to do |format|
-      if @collection.update(collection_params)
+      if @collection.update(@params)
         format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
         format.json { head :no_content }
       else
@@ -65,6 +65,12 @@ class CollectionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_collection
       @collection = Collection.find(params[:id])
+    end
+
+  # When author is passed as user_id, find user and replace in params hash
+    def set_author
+      user = User.find(collection_params[:author])
+      @params = {author: user, title: collection_params[:title], begun_on: collection_params[:begun_on]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

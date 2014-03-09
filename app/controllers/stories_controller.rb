@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_author, only: [:create, :update]
 
   # GET /stories
   # GET /stories.json
@@ -24,7 +25,7 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
-    @story = Story.new(story_params)
+    @story = Story.new(@params)
 
     respond_to do |format|
       if @story.save
@@ -41,7 +42,7 @@ class StoriesController < ApplicationController
   # PATCH/PUT /stories/1.json
   def update
     respond_to do |format|
-      if @story.update(story_params)
+      if @story.update(@params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
@@ -67,8 +68,14 @@ class StoriesController < ApplicationController
       @story = Story.find(params[:id])
     end
 
+    # When author is passed as user_id, find user and replace in params hash
+    def set_author
+      user = User.find(story_params[:author])
+      @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: story_params[:published_on]}
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:name, :story, :author)
+      params.require(:story).permit(:title, :content, :author, :published_on)
     end
 end
