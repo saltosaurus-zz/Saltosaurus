@@ -1,0 +1,31 @@
+<h1>Listing collections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Begun on</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collections.each do |collection| %>
+      <tr>
+        <td><%= collection.title %></td>
+        <td><%= collection.author %></td>
+        <td><%= collection.begun_on %></td>
+        <td><%= link_to 'Show', collection %></td>
+        <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+        <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collection', new_collection_path %>
