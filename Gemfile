@@ -38,6 +38,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
 group :test do
   gem 'mocha'
   gem 'shoulda'
@@ -48,9 +56,6 @@ group :test do
   gem 'minitest-rails'
 end
 
-group :development, :test do
-  gem 'factory_girl_rails', '~> 4.0'
-end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
