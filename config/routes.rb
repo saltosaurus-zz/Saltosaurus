@@ -1,5 +1,5 @@
 Saltosaurus::Application.routes.draw do
-  get "welcome/index"
+
   resources :users
 
   resources :collections

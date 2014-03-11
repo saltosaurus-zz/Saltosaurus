@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
-  test "should get index" do
+  def test_should_get_index
     get :index
     assert_response :success
   end
