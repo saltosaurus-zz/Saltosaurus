@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
-<a class="blog-nav-item active" href="#">Home</a>
-<a class="blog-nav-item" href="#">Short Stories</a>
-<a class="blog-nav-item" href="#">Anthologies</a>
-<a class="blog-nav-item" href="#">Novels</a>
-<a class="blog-nav-item" href="#">Projects</a>
-<a class="blog-nav-item" href="#">FAQ</a>
+<%= link_to 'Home', '/', {:class => 'blog-nav-item active'} %>
+<%= link_to 'Short Stories', '/short_stories', {:class => 'blog-nav-item'} %>
+<%= link_to 'Anthologies', '/anthologies', {:class => 'blog-nav-item'} %>
+<%= link_to 'Novels', '/novels', {:class => 'blog-nav-item'} %>
+<%= link_to 'Projects', '/projects', {:class => 'blog-nav-item'} %>
+<%= link_to 'FAQ', '/faq', {:class => 'blog-nav-item'} %>
