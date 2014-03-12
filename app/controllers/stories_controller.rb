@@ -70,7 +70,10 @@ class StoriesController < ApplicationController
 
     # When author is passed as user_id, find user and replace in params hash
     def set_author
-      user = User.find(story_params[:author])
+      user = story_params[:author]
+      if user.is_a? String
+        user = User.find(user)
+      end
       @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: story_params[:published_on]}
     end
 

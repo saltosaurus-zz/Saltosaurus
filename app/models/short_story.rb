@@ -4,4 +4,8 @@ class ShortStory < Story
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
   validates :title, uniqueness: { scope: :type, message: 'already exists amongst all Short Stories.' }
+
+  def self.model_name
+    Story.model_name
+  end
 end
