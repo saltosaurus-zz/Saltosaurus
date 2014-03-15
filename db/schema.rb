@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140307022242) do
     t.integer  "user_id"
     t.datetime "begun_on"
     t.datetime "completed_on"
+    t.string   "type"
   end
 
   create_table "comments", force: true do |t|
