@@ -5,6 +5,8 @@ class CreateCollections < ActiveRecord::Migration
       t.belongs_to :user
       t.datetime :begun_on
       t.datetime :completed_on
+
+      t.string :type
     end
   end
 end

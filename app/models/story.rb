@@ -6,4 +6,5 @@ class Story < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
   validates :published_on, presence: true
+  validates :type, presence: true
 end

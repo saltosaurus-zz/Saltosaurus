@@ -5,7 +5,12 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @archives = {}
+    Story.where(type: params[:type]).order('published_on').reverse.group_by{|x| x.published_on.beginning_of_month}.each do |date, stories|
+      @archives[date.strftime('%B %Y')] = stories.count
+    end
+    @stories = Story.page(params[:page]).per(3).where(type: params[:type])
+    @type = params[:type]
   end
 
   # GET /stories/1
@@ -74,7 +79,7 @@ class StoriesController < ApplicationController
       if user.is_a? String
         user = User.find(user)
       end
-      @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: story_params[:published_on]}
+      @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: story_params[:published_on], type: story_params[:type]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
