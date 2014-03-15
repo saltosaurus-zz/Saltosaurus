@@ -66,6 +66,14 @@ section {
     background-color: #95938F;
     text-decoration: none;
   }
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 /* Active state gets a caret at the bottom */
@@ -100,8 +108,8 @@ section {
 
 .blog-footer {
   padding: 40px 0;
-  color: #999;
+  color: #95938F;
   text-align: center;
-  background-color: #f9f9f9;
-  border-top: 1px solid #e5e5e5;
+  background-color: #E3E0DC;
+  border-top: 1px solid #95938F;
 }
