@@ -6,5 +6,6 @@ FactoryGirl.define do
     sequence(:number) { |n| n }
     content 'He stabbed a guy!'
     published_on Time.now
+    type 'Chapter'
   end
 end

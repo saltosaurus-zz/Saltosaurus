@@ -70,9 +70,9 @@ class ChapterTest < MiniTest::Unit::TestCase
   end
 
   def test_author_can_be_added_to_chapter
-    author = create(:user, name: 'Salty')
+    author = create(:user, display_name: 'Salty')
     chapter = create(:chapter, author: author)
-    assert chapter.author.name == 'Salty', 'Author was not successfully added to Chapter'
+    assert chapter.author.display_name == 'Salty', 'Author was not successfully added to Chapter'
   end
 
 end

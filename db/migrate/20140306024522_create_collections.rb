@@ -3,8 +3,7 @@ class CreateCollections < ActiveRecord::Migration
     create_table :collections do |t|
       t.string :title
       t.belongs_to :user
-      t.datetime :begun_on
-      t.datetime :completed_on
+      t.boolean :completed
 
       t.string :type
     end

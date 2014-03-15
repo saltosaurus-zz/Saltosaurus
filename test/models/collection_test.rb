@@ -17,19 +17,9 @@ class CollectionTest < MiniTest::Unit::TestCase
     assert !collection.valid?, 'Collection is missing author but is still valid'
   end
 
-  def test_invalid_without_begun_on_date
-    collection = build(:collection, begun_on: nil)
+  def test_invalid_without_completed_flag
+    collection = build(:collection, completed: nil)
     assert !collection.valid?, 'Collection is missing begun_on date but is still valid'
-  end
-
-  def test_valid_without_completed_on_date
-    collection = build(:collection, completed_on: nil)
-    assert collection.valid?, 'Collection is invalid without completed_on date'
-  end
-
-  def test_valid_with_completed_on_date
-    collection = build(:collection, completed_on: Time.now)
-    assert collection.valid?, 'Collection is invalid with completed_on date'
   end
 
   def test_collection_is_created_without_comments
@@ -60,9 +50,9 @@ class CollectionTest < MiniTest::Unit::TestCase
   end
 
   def test_author_can_be_added_to_collection
-    author = create(:user, name: 'Salty')
+    author = create(:user, display_name: 'Salty')
     collection = create(:collection, author: author)
-    assert collection.author.name == 'Salty', 'Author was not successfully added to Collection'
+    assert collection.author.display_name == 'Salty', 'Author was not successfully added to Collection'
   end
 
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    author 'Andrew'
+    association :author, factory: :user
     sequence(:content) { |c| "My back itches #{c}" }
     association :commentable, factory: :story
   end

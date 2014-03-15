@@ -19,28 +19,17 @@ ActiveRecord::Schema.define(version: 20140307022242) do
   end
 
   create_table "collections", force: true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.datetime "begun_on"
-    t.datetime "completed_on"
-    t.string   "type"
+    t.string  "title"
+    t.integer "user_id"
+    t.boolean "completed"
+    t.string  "type"
   end
 
   create_table "comments", force: true do |t|
     t.integer  "commentable_id"
     t.string   "commentable_type"
-    t.string   "content"
-    t.string   "author"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "novels", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "short_stories", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,19 +44,10 @@ ActiveRecord::Schema.define(version: 20140307022242) do
     t.string   "type"
   end
 
-  create_table "updates", force: true do |t|
-    t.integer  "user_id"
-    t.text     "content"
-    t.string   "title"
-    t.datetime "published_on"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
-    t.string "name"
-    t.string "username"
-    t.string "encrypted_password"
+    t.string "display_name"
+    t.string "uid"
+    t.string "provider"
   end
 
 end

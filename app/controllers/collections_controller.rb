@@ -27,6 +27,7 @@ class CollectionsController < ApplicationController
   # POST /collections.json
   def create
     @collection = Collection.new(@params)
+    puts @collection.inspect
     respond_to do |format|
       if @collection.save
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
@@ -71,11 +72,11 @@ class CollectionsController < ApplicationController
   # When author is passed as user_id, find user and replace in params hash
     def set_author
       user = User.find(collection_params[:author])
-      @params = {author: user, title: collection_params[:title], begun_on: collection_params[:begun_on]}
+      @params = {author: user, title: collection_params[:title], completed: collection_params[:completed], type: collection_params[:type]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def collection_params
-      params.require(:collection).permit(:title, :author, :begun_on)
+      params.require(:collection).permit(:title, :author, :completed, :type)
     end
 end

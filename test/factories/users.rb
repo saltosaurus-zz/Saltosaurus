@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    name 'Brian'
-    sequence(:username) { |n| "Saltosaurus#{n}" }
-    encrypted_password 'catsasdf'
+    display_name 'Brian'
+    sequence(:uid) { |n| "Saltosaurus#{n}" }
+    provider 'facebook'
   end
 end

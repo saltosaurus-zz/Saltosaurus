@@ -4,9 +4,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "Thinking for Dummies #{n}" }
     published_on Time.now
     content 'Insert content here...'
-
-    factory :short_story_with_comments do
-      association :comments, factory: :comment
-    end
+    type 'ShortStory'
   end
 end

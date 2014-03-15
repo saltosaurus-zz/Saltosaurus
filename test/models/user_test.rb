@@ -7,18 +7,18 @@ class UserTest < ActiveSupport::TestCase
     assert user.valid?, 'User has name, username, encrypted_password but is invalid'
   end
 
-  def test_invalid_without_name
-    user = build(:user, name: nil)
+  def test_invalid_without_display_name
+    user = build(:user, display_name: nil)
     assert !user.valid?, 'User is missing name but is still valid'
   end
 
-  def test_invalid_without_username
-    user = build(:user, username: nil)
+  def test_invalid_without_uid
+    user = build(:user, uid: nil)
     assert !user.valid?, 'User is missing username but is still valid'
   end
 
-  def test_invalid_without_password
-    user = build(:user, encrypted_password: nil)
+  def test_invalid_without_provider
+    user = build(:user, provider: nil)
     assert !user.valid?, 'User is missing encrypted_password but is still valid'
   end
 

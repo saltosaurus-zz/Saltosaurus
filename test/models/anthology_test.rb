@@ -8,9 +8,9 @@ class AnthologyTest < MiniTest::Unit::TestCase
   end
 
   def test_author_can_be_added_to_anthology
-    author = create(:user, name: 'Salty')
+    author = create(:user, display_name: 'Salty')
     anthology = create(:anthology, author: author)
-    assert anthology.author.name == 'Salty', 'Author was not successfully added to Anthology'
+    assert anthology.author.display_name == 'Salty', 'Author was not successfully added to Anthology'
   end
 
 end

@@ -33,9 +33,9 @@ class BlogEntryTest < MiniTest::Unit::TestCase
   end
 
   def test_author_can_be_added_to_blog_entry
-    author = create(:user, name: 'Salty')
+    author = create(:user, display_name: 'Salty')
     blog_entry = create(:blog_entry, author: author)
-    assert blog_entry.author.name == 'Salty', 'Author was not successfully added to Blog_entry'
+    assert blog_entry.author.display_name == 'Salty', 'Author was not successfully added to Blog_entry'
   end
 
 end

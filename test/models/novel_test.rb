@@ -18,9 +18,9 @@ class NovelTest < MiniTest::Unit::TestCase
   end
 
   def test_author_can_be_added_to_novel
-    author = create(:user, name: 'Salty')
+    author = create(:user, display_name: 'Salty')
     novel = create(:novel, author: author)
-    assert novel.author.name == 'Salty', 'Author was not successfully added to Novel'
+    assert novel.author.display_name == 'Salty', 'Author was not successfully added to Novel'
   end
 
   def test_chapters_can_be_attached_to_short_story

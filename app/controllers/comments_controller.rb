@@ -72,7 +72,8 @@ class CommentsController < ApplicationController
     def set_commentable
       commentable_type = comment_params[:commentable_type]
       commentable = commentable_type.constantize.find(comment_params[:commentable_id])
-      @params = {author: comment_params[:author], content: comment_params[:content], commentable: commentable}
+      user = User.find(comment_params[:author])
+      @params = {author: user, content: comment_params[:content], commentable: commentable}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

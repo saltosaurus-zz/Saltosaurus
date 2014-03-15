@@ -49,9 +49,9 @@ class StoryTest < MiniTest::Unit::TestCase
   end
 
   def test_author_can_be_added_to_story
-    author = create(:user, name: 'Salty')
+    author = create(:user, display_name: 'Salty')
     story = create(:story, author: author)
-    assert story.author.name == 'Salty', 'Author was not successfully added to story'
+    assert story.author.display_name == 'Salty', 'Author was not successfully added to story'
   end
 
   def test_comments_can_be_attached_to_existing_story
