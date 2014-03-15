@@ -1,14 +1,16 @@
 Saltosaurus::Application.routes.draw do
 
+  get "about/index"
+  get "projects/index"
   resources :about
 
   resources :admin
 
   resources :collections
 
-  resources :anthologies, controller: 'collections', type: 'Anthology'
+  resources :anthologies, controller: 'collections', type: 'Anthology', defaults: { type: 'Anthology' }
 
-  resources :novels, controller: 'collections', type: 'Novel'
+  resources :novels, controller: 'collections', type: 'Novel', defaults: { type: 'Novel' }
 
   resources :comments
 
@@ -16,15 +18,15 @@ Saltosaurus::Application.routes.draw do
 
   resources :stories
 
-  resources :short_stories, controller: 'stories', type: 'ShortStory'
+  resources :short_stories, controller: 'stories', type: 'ShortStory', defaults: { type: 'Chapter' }
 
-  resources :chapters, controller: 'stories', type: 'Chapter'
+  resources :chapters, controller: 'stories', type: 'Chapter', defaults: { type: 'ShortStory' }
+
+  resources :updates, controller: 'stories', type: 'Update', defaults: { type: 'Update' }
 
   resources :updates
 
   resources :users
-
-  resources :short_stories, controller: 'stories', type: 'ShortStory'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

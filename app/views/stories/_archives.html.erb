@@ -1,0 +1,8 @@
+<div class="sidebar-module">
+  <h4>Archives</h4>
+  <ol class="list-unstyled">
+    <% @archives.each do |date, count| %>
+        <li><%= link_to date, '#' %> (<%= count %>)</li>
+    <% end %>
+  </ol>
+</div>
