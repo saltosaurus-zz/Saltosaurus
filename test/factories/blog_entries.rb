@@ -1,8 +1,9 @@
 FactoryGirl.define do
-  factory :update do
+  factory :blog_entry do
     association :author, factory: :user
     content 'My back itches'
-    title 'My life'
+    sequence(:title) { |n| "My life#{n}" }
     published_on Time.now
+    type 'BlogEntry'
   end
 end

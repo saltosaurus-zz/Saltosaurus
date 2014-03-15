@@ -6,8 +6,6 @@ Saltosaurus::Application.routes.draw do
 
   resources :admin
 
-  resources :collections
-
   resources :anthologies, controller: 'collections', type: 'Anthology', defaults: { type: 'Anthology' }
 
   resources :novels, controller: 'collections', type: 'Novel', defaults: { type: 'Novel' }
@@ -16,15 +14,11 @@ Saltosaurus::Application.routes.draw do
 
   resources :projects
 
-  resources :stories
-
   resources :short_stories, controller: 'stories', type: 'ShortStory', defaults: { type: 'Chapter' }
 
   resources :chapters, controller: 'stories', type: 'Chapter', defaults: { type: 'ShortStory' }
 
-  resources :updates, controller: 'stories', type: 'Update', defaults: { type: 'Update' }
-
-  resources :updates
+  resources :blog, controller: 'stories', type: 'BlogEntry', defaults: { type: 'BlogEntry' }
 
   resources :users
 
