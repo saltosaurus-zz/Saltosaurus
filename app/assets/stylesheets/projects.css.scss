@@ -1,3 +1,46 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.project, .FAQ {
+  font-family: 'Jura', sans-serif;
+  float: left;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  list-style: none; }
+.project header, .FAQ header {
+  display: inline-block;
+  height: auto;
+  text-align: left;
+  margin: 0 1em;
+  width: 380px; }
+.project header h1, .FAQ header h1 {
+  display: inline-block;
+  width: auto; }
+.project header .status, .FAQ header .status {
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+  font-size: small;
+  padding: .25em;
+  margin: auto 1em; }
+.project header .status.WIP, .FAQ header .status.WIP {
+  background-color: #5b939d; }
+.project header .status.FIN, .FAQ header .status.FIN {
+  background-color: green; }
+.project header .status.ABND, .FAQ header .status.ABND {
+  background-color: red; }
+.project p, .FAQ p {
+  margin: 1em 2em;
+  width: 600px; }
+.project li, .FAQ li {
+  padding: 1em 0;
+  margin: 1em 0;
+  background-color: #E6D7CA;
+  border-radius: 25px;
+  box-shadow: 1px 1px 2px lightslategrey; }
+.project a, .FAQ a {
+  text-decoration: none;
+  color: DarkSlateGrey; }
+.project a:hover, .FAQ a:hover {
+  color: LightSlateGrey; }

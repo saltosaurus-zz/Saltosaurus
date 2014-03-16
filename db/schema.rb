@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20140307022242) do
   end
 
   create_table "collections", force: true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.boolean  "completed"
-    t.datetime "completed_on"
-    t.string   "type"
+    t.string  "title"
+    t.integer "user_id"
+    t.boolean "completed"
+    t.date    "completed_on"
+    t.string  "type"
   end
 
   create_table "comments", force: true do |t|
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 20140307022242) do
   end
 
   create_table "stories", force: true do |t|
-    t.string   "title"
-    t.integer  "user_id"
-    t.text     "content"
-    t.datetime "published_on"
-    t.integer  "collection_id"
-    t.integer  "number"
-    t.string   "type"
+    t.string  "title"
+    t.integer "user_id"
+    t.text    "content"
+    t.date    "published_on"
+    t.integer "collection_id"
+    t.integer "number"
+    t.string  "type"
   end
 
   create_table "users", force: true do |t|
