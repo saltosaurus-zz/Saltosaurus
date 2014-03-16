@@ -18,11 +18,11 @@ Saltosaurus::Application.routes.draw do
 
   resources :stories
 
-  resources :short_stories, controller: 'stories', type: 'ShortStory', defaults: { type: 'Chapter' }
+  resources :short_stories, controller: 'stories', type: 'ShortStory', defaults: { type: 'ShortStory' }, path: '/short'
 
-  resources :chapters, controller: 'stories', type: 'Chapter', defaults: { type: 'ShortStory' }
+  resources :chapters, controller: 'stories', type: 'Chapter', defaults: { type: 'Chapter' }
 
-  resources :blog, controller: 'stories', type: 'BlogEntry', defaults: { type: 'BlogEntry' }
+  resources :blog_entries, controller: 'stories', type: 'BlogEntry', defaults: { type: 'BlogEntry' }, path: '/blog'
 
   resources :users
 

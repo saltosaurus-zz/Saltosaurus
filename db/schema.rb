@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20140307022242) do
   end
 
   create_table "collections", force: true do |t|
-    t.string  "title"
-    t.integer "user_id"
-    t.boolean "completed"
-    t.string  "type"
+    t.string   "title"
+    t.integer  "user_id"
+    t.boolean  "completed"
+    t.datetime "completed_on"
+    t.string   "type"
   end
 
   create_table "comments", force: true do |t|

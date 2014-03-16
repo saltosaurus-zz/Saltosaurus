@@ -3,6 +3,7 @@ require 'test_helper'
 class CollectionsControllerTest < ActionController::TestCase
   def setup
     @collection = create(:collection)
+    puts @collection.inspect
   end
 
   def test_should_get_index
@@ -18,7 +19,7 @@ class CollectionsControllerTest < ActionController::TestCase
 
   def test_should_create_collection
     assert_difference('Collection.count') do
-      post :create, collection: { author: @collection.author, begun_on: @collection.begun_on, title: @collection.title }
+      post :create, collection: { author: @collection.author, completed: false, title: @collection.title, type: @collection.type }
     end
 
     assert_redirected_to collection_path(assigns(:collection))
@@ -35,7 +36,7 @@ class CollectionsControllerTest < ActionController::TestCase
   end
 
   def test_should_update_collection
-    patch :update, id: @collection, collection: { author: @collection.author, begun_on: @collection.begun_on, title: @collection.title }
+    patch :update, id: @collection, collection: { author: @collection.author, completed: false, title: @collection.title, type: @collection.type }
     assert_redirected_to collection_path(assigns(:collection))
   end
 

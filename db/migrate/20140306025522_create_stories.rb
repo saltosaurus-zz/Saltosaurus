@@ -5,7 +5,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :title
       t.belongs_to :user
       t.text :content
-      t.datetime :published_on
+      t.date :published_on
       t.belongs_to :collection
 
       # Used in Chapters

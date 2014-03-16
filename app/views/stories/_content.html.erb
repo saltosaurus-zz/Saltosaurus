@@ -1,8 +1,8 @@
 <% @stories.each do |story| %>
 
     <div class="blog-post">
-      <h2 class="blog-post-title"><%= story.title %></h2>
-      <p class="blog-post-meta">Written <%= distance_of_time_in_words story.published_on, Time.now %> ago by <%= link_to story.author.name, story.author %>.</p>
+      <h2 class="blog-post-title"><%= link_to story.title, story %></h2>
+      <p class="blog-post-meta">Written <%= distance_of_time_in_words story.published_on, Time.now %> ago by <%= link_to story.author.display_name, story.author %>.</p>
 
       <%= story.content %>
     </div><!-- /.blog-post -->

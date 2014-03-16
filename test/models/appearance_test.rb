@@ -10,7 +10,7 @@ class AppearanceTest < ActiveSupport::TestCase
   def test_anthology_can_be_added_to_appearance
     anthology = create(:anthology, title: 'Salty')
     appearance = create(:appearance, anthology: anthology)
-    assert appearance.anthology.title == 'Salty', 'Author was not successfully added to Appearance'
+    assert appearance.anthology.title == 'Salty', 'Anthology was not successfully added to Appearance'
   end
 
   def test_appearance_is_created_with_short_story

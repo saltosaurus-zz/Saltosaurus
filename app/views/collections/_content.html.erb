@@ -1,0 +1,19 @@
+<% @collections.each do |collection| %>
+
+    <div class="blog-post">
+      <h2 class="blog-post-title"><%= link_to collection.title, collection %></h2>
+      <p class="blog-post-meta">Written by <%= link_to collection.author.display_name, collection.author %> <%= collection.completed ? 'and finished '+collection.completed_on.to_s : 'but not yet finished' %>.</p>
+
+      <% @stories = collection.short_stories if @type == 'Anthology' %>
+      <% @stories = collection.chapters if @type == 'Novel' %>
+
+      <% for story in @stories.limit(5) do %>
+        <h4><%= link_to story.title, story %></h4>
+        <p class="blog-post-meta">Written by <%= link_to story.author.display_name, story.author %> on <%= story.published_on.to_date.to_s %>.</p>
+      <% end %>
+      <% if @stories.count > 5 %>
+        <p>Some stories have been hidden. <%= link_to 'See the rest?', collection %></p>
+      <% end %>
+    </div><!-- /.blog-post -->
+
+<% end %>

@@ -1,32 +1,28 @@
 <script>$('.<%= @type %>').addClass('active')</script>
-<h1>Listing collections</h1>
+<div class="container">
+  <div class="blog-header">
+    <h2 class="blog-title">So Says The Saltosaurus</h2>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Begun on</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-sm-8 blog-main">
 
-  <tbody>
-    <% @collections.each do |collection| %>
-      <tr>
-        <td><%= collection.title %></td>
-        <td><%= collection.author %></td>
-        <td><%= collection.begun_on %></td>
-        <td><%= link_to 'Show', collection %></td>
-        <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
-        <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= render 'content' %>
 
-<br>
+      <div id="entry_info"><%= page_entries_info @collections %>.</div>
 
-<%= link_to 'New Collection', new_collection_path %>
+      <div><%= paginate @collections %></div>
+
+
+
+    </div><!-- /.blog-main -->
+
+    <div class="col-sm-3 col-sm-offset-1 hidden-xs blog-sidebar">
+
+      <%= render 'archives' %>
+
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->

@@ -5,7 +5,8 @@ class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.json
   def index
-    @collections = Collection.where(type: params[:type])
+    @archives = Collection.get_archives
+    @collections = Collection.page(params[:page]).per(5).where(type: params[:type])
     @type = params[:type]
   end
 
