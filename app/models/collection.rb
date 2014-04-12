@@ -14,7 +14,7 @@ class Collection < ActiveRecord::Base
   def stories
   end
 
-  def get_archives
+  def self.get_archives
     archives = {}
     Collection.all.sort_by(&:latest_story_date).reverse.group_by{|x| x.completed_on.beginning_of_month if x.completed_on}.each do |date, stories|
       archives[date.strftime('%B %Y')] = stories.count if date

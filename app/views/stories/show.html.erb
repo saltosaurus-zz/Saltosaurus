@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="blog-header">
+    <h2 class="blog-title"><%= @story.title %></h2>
+    <p class="blog-post-meta">Written <%= distance_of_time_in_words @story.published_on, Time.now %> ago by <%= link_to @story.author.display_name, @story.author %>.</p>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @story.title %>
-</p>
+  <div class="row">
 
-<p>
-  <strong>Story:</strong>
-  <%= @story.content %>
-</p>
+    <div class="col-sm-11 blog-main">
 
-<p>
-  <strong>Author:</strong>
-  <%= @story.author %>
-</p>
+      <div class="blog-post">
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+        <%= @story.content %>
+
+      </div><!-- /.blog-post -->
+
+    </div><!-- /.blog-main -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->

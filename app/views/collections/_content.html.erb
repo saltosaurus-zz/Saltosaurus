@@ -4,8 +4,7 @@
       <h2 class="blog-post-title"><%= link_to collection.title, collection %></h2>
       <p class="blog-post-meta">Written by <%= link_to collection.author.display_name, collection.author %> <%= collection.completed ? 'and finished '+collection.completed_on.to_s : 'but not yet finished' %>.</p>
 
-      <% @stories = collection.short_stories if @type == 'Anthology' %>
-      <% @stories = collection.chapters if @type == 'Novel' %>
+      <% @stories = collection.stories %>
 
       <% for story in @stories.limit(5) do %>
         <h4><%= link_to story.title, story %></h4>

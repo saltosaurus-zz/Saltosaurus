@@ -4,7 +4,11 @@ class Anthology < Collection
   belongs_to :author, class_name: 'User', foreign_key: :user_id
 
   def latest_story_date
-    short_stories.last.published_on
+    if short_stories.last
+      short_stories.last.published_on
+    else
+      Date.today
+    end
   end
 
   def stories

@@ -1,0 +1,9 @@
+<div class="blog-post">
+  <% @stories.each do |story| %>
+      <h2 class="blog-post-title"><%= link_to story.title, story %></h2>
+      <p class="blog-post-meta">Written by <%= link_to story.author.display_name, story.author %> on <%= story.published_on.to_date.to_s %>.</p>
+      <%= story.content %>
+  <% end %>
+  <div id="entry_info"><%= page_entries_info @stories %>.</div>
+  <div><%= paginate @stories %></div>
+</div><!-- /.blog-post -->

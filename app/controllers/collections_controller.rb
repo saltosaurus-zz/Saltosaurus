@@ -13,6 +13,8 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
+    puts @collection.stories
+    @stories = Story.page(params[:page]).per(3).where(in? @collection.stories)
   end
 
   # GET /collections/new
