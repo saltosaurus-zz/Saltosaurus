@@ -6,7 +6,10 @@ class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.json
   def index
-    @archives = Collection.get_archives
+    @archives = {}
+    Collection.all.sort_by(&:latest_story_date).reverse.group_by{|x| x.completed_on.beginning_of_month if x.completed_on}.each do |date, stories|
+      @archives[date.strftime('%B %Y')] = stories.count if date
+    end
     @collections = Collection.page(params[:page]).per(5).where(type: params[:type])
     @type = params[:type]
   end
