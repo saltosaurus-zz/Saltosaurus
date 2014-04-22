@@ -1,6 +1,7 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
   before_action :set_author, only: [:create, :update]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   # GET /collections
   # GET /collections.json

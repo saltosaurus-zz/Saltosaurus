@@ -1,6 +1,6 @@
 Saltosaurus::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'user/omniauth_callbacks' }
   get "about/index"
   get "projects/index"
   resources :about
