@@ -36,6 +36,11 @@ gem 'safe_attributes'
 # Pagination
 gem 'kaminari'
 
+# Authentication
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
