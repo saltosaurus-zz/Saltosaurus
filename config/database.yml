@@ -20,12 +20,3 @@ test:
   username: root
   password:
   host: localhost
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  database: Saltosaurus_production
-  pool: 5
-  username: root
-  password:
-  host: localhost
