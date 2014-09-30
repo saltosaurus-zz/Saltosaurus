@@ -1,5 +1,6 @@
 Saltosaurus::Application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   devise_for :users, controllers: { omniauth_callbacks: 'user/omniauth_callbacks' }
   get "about/index"
   get "projects/index"

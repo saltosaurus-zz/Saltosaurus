@@ -34,7 +34,7 @@ class StoriesController < ApplicationController
     @story = Story.new(@params)
 
     respond_to do |format|
-      if @story.save
+      if current_user.try(:admin?) && @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render action: 'show', status: :created, location: @story }
       else
@@ -48,6 +48,7 @@ class StoriesController < ApplicationController
   # PATCH/PUT /stories/1.json
   def update
     respond_to do |format|
+      print @params
       if @story.update(@params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
@@ -80,11 +81,11 @@ class StoriesController < ApplicationController
       if user.is_a? String
         user = User.find(user)
       end
-      @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: story_params[:published_on], type: story_params[:type]}
+      @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: DateTime.now, type: story_params[:type]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:title, :content, :author, :published_on, :type)
+      params.require(:story).permit(:title, :content, :author, :published_on, :type, :bootsy_image_gallery_id)
     end
 end

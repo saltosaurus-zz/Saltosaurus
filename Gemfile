@@ -14,6 +14,9 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Bootstrap for front-end scaffolding
 gem 'bootstrap-sass'
 
+# Autoprefix browser vendors
+gem 'autoprefixer-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -37,6 +40,9 @@ gem 'safe_attributes'
 
 # Pagination
 gem 'kaminari'
+
+# WYSIWYG editor
+gem 'bootsy'
 
 # Authentication
 gem 'devise'

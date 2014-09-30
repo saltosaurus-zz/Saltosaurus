@@ -13,10 +13,9 @@ class User < ActiveRecord::Base
 
   # Authentication methods
   def self.find_for_twitter_oauth(auth)
-    where(auth.slice(:provider,:uid)).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.display_name = auth.info.name
+      user.password = Devise.friendly_token[0,20]
     end
   end
 end
