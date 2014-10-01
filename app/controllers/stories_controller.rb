@@ -34,7 +34,7 @@ class StoriesController < ApplicationController
     @story = Story.new(@params)
 
     respond_to do |format|
-      if current_user.try(:admin?) && @story.save
+      if  @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render action: 'show', status: :created, location: @story }
       else
