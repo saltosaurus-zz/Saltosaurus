@@ -49,6 +49,13 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+# Logging and bug reports
+gem 'bugsnag'
+gem 'newrelic_rpm'
+
+# Unicorn for serving web requests
+gem 'unicorn'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
