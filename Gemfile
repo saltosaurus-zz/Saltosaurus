@@ -53,6 +53,9 @@ gem 'omniauth-twitter'
 gem 'bugsnag'
 gem 'newrelic_rpm'
 
+# Caching
+gem 'iron_cache'
+
 # Unicorn for serving web requests
 gem 'unicorn'
 

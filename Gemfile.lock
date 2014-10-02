@@ -80,6 +80,10 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.6.11)
+    iron_cache (1.4.2)
+      iron_core (>= 0.5.1)
+    iron_core (1.0.5)
+      rest (>= 2.6.4)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -128,6 +132,8 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    net-http-persistent (2.9.4)
+    netrc (0.7.7)
     newrelic_rpm (3.9.5.251)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -187,6 +193,11 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     remotipart (1.2.1)
+    rest (2.7.2)
+      net-http-persistent (>= 2.9.1)
+      rest_client (>= 1.7.1)
+    rest_client (1.7.3)
+      netrc (~> 0.7.7)
     safe_attributes (1.0.10)
       activerecord (>= 3.0.0)
     sass (3.2.19)
@@ -252,6 +263,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails (~> 4.0)
+  iron_cache
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
