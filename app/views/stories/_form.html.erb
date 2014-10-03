@@ -20,12 +20,8 @@
     <%= f.bootsy_area :content, rows: 12, cols: 100 %>
   </div>
   <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
     <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.collection_select :type, Story.descendants, :name, :to_s, {include_blank: true} %>
   </div>
   <div class="actions">
     <%= f.submit %>

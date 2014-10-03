@@ -34,7 +34,7 @@ class StoriesController < ApplicationController
     @story = Story.new(@params)
 
     respond_to do |format|
-      if  @story.save
+      if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render action: 'show', status: :created, location: @story }
       else
@@ -77,15 +77,11 @@ class StoriesController < ApplicationController
 
     # When author is passed as user_id, find user and replace in params hash
     def set_author
-      user = story_params[:author]
-      if user.is_a? String
-        user = User.find(user)
-      end
-      @params = {author: user, title: story_params[:title], content: story_params[:content], published_on: DateTime.now, type: story_params[:type]}
+      @params = {author: current_user, title: story_params[:title], content: story_params[:content], published_on: DateTime.now, type: story_params[:type]}
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:title, :content, :author, :published_on, :type, :bootsy_image_gallery_id)
+      params.require(:story).permit(:title, :content, :author, :published_on, :type)
     end
 end
